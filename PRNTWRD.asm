@@ -1,6 +1,8 @@
-ASSUME CS:CODE, DS:CODE
-CODE SEGMENT
-    ORG 100h
+        TITLE PRNTWRD
+CODE    SEGMENT
+        ASSUME CS:CODE, DS:CODE, ES:CODE, SS:CODE
+        ORG 100h
+
 START:
     MOV ax, cs
     MOV ds, ax
@@ -16,9 +18,9 @@ LOOP1:
     CMP al, ' '
     jnz LOOP1
     INT 20h
-STR
-    db 25 dup(0ah), 0dh
+STR db 25 dup(0ah), 0dh
     db 38 dup(20h), 'text'
     db 12 dup(0ah), 0dh, '$'
+
 CODE ENDS
 END START
